@@ -83,8 +83,12 @@ class BaseHandler(tornado.web.RequestHandler):
         return None
 
     def absolute_url(self, url):
+        protocol = self.request.headers.get(
+            'X-Forwarded-Proto',
+            self.request.protocol
+        )
         if settings.URL_PREFIX:
-            base = "{0}://{1}/{2}/".format(self.request.protocol,
+            base = "{0}://{1}/{2}/".format(protocol,
                                            self.request.host,
                                            settings.URL_PREFIX)
         else:
