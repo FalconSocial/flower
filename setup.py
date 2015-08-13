@@ -34,6 +34,7 @@ classes = """
     Programming Language :: Python :: 3.4
     Programming Language :: Python :: Implementation :: CPython
     Operating System :: OS Independent
+    Falcon :: Private
 """
 classifiers = [s.strip() for s in classes.split('\n') if s]
 
